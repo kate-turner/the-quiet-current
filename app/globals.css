@@ -6,8 +6,20 @@
 }
 
 @theme inline {
+  /* Colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-teal-ultralight: #e8f5f3;
+  --color-teal-light: #d4eeea;
+  --color-teal-mid: #3d7a72;
+  --color-teal-dark: #1a4a45;
+  --color-teal-deep: #0d2d2a;
+
+  /* Fonts - Semantic */
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-nunito);
+
+  /* Fonts - System */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -22,5 +34,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
 }

@@ -1,65 +1,88 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      {/* Hero Section */}
+      <section
+        className="relative min-h-screen overflow-hidden bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/hero-ocean.jpg')" }}
+      >
+        {/* Soft overlay for text readability */}
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/30 to-white/50"
+          aria-hidden="true"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            The Quiet Current Services
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+        {/* Content */}
+        <main className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 py-20">
+          <div className="flex max-w-3xl flex-col items-center text-center">
+            {/* Main heading */}
+            <h1 className="mb-6 font-heading text-6xl font-bold tracking-wide text-teal-dark drop-shadow-sm sm:text-7xl md:text-8xl">
+              The Quiet Current
+            </h1>
+
+            {/* Subheading */}
+            <p className="mb-8 font-body text-lg font-semibold uppercase tracking-[0.25em] text-teal-dark drop-shadow-sm sm:text-xl">
+              Integrative Massage + Craniosacral Therapy
+            </p>
+
+            {/* Decorative line */}
+            <div
+              className="mb-8 h-px w-24 bg-gradient-to-r from-transparent via-teal-dark to-transparent"
+              aria-hidden="true"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+            {/* Tagline */}
+            <p className="mb-12 max-w-md font-heading text-xl leading-relaxed text-teal-dark drop-shadow-sm sm:text-2xl">
+              Holistic manual therapy supporting structural balance and
+              nervous-system regulation—helping your body return to stillness,
+              softness, and a natural, fluid state of movement
+            </p>
+
+            {/* CTA Button - Scrolls to booking section */}
+            <a
+              href="#book"
+              className="group relative overflow-hidden rounded-full bg-teal-dark/90 px-10 py-4 font-body text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-lg backdrop-blur-sm transition-all duration-500 hover:bg-teal-dark hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-teal-deep focus:ring-offset-2 focus:ring-offset-white/50"
+              aria-label="Book a session"
+            >
+              <span className="relative z-10">Book a Session</span>
+              <span
+                className="absolute inset-0 -translate-x-full bg-gradient-to-r from-teal-deep to-teal-dark transition-transform duration-500 group-hover:translate-x-0"
+                aria-hidden="true"
+              />
+            </a>
+          </div>
+        </main>
+      </section>
+
+      {/* Booking Section */}
+      <section
+        id="book"
+        className="bg-gradient-to-b from-teal-ultralight to-teal-light px-6 py-20"
+      >
+        <div className="mx-auto max-w-4xl">
+          {/* Section heading */}
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 font-heading text-4xl font-bold tracking-wide text-teal-dark sm:text-5xl">
+              Book Your Session
+            </h2>
+            <p className="mx-auto max-w-md font-body text-lg text-teal-mid">
+              Select a service and find a time that works for you.
+            </p>
+          </div>
+
+          {/* Square Appointments Iframe */}
+          <div className="overflow-hidden rounded-2xl bg-white shadow-xl">
+            <iframe
+              src="https://app.squareup.com/appointments/buyer/widget/d23lexfygzi760/LTF55SD00Y438"
+              className="min-h-[400px] w-full border-0"
+              style={{ height: "calc(100vh - 300px)", maxHeight: "800px" }}
+              title="Book an appointment with The Quiet Current"
+              allow="payment"
+              loading="lazy"
+            />
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
