@@ -1,9 +1,17 @@
+import Script from "next/script";
+
 export default function Home() {
   return (
     <>
+      {/* Pocketsuite Widget Script */}
+      <Script
+        src="https://book.pocketsuite.io/static/javascript/widget.js"
+        strategy="lazyOnload"
+      />
+
       {/* Hero Section */}
       <section
-        className="relative min-h-screen overflow-hidden bg-cover bg-center bg-no-repeat"
+        className="relative min-h-[75vh] overflow-hidden bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/hero-ocean.jpg')" }}
       >
         {/* Soft overlay for text readability */}
@@ -13,7 +21,7 @@ export default function Home() {
         />
 
         {/* Content */}
-        <main className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 py-20">
+        <main className="relative z-10 flex min-h-[75vh] flex-col items-center justify-center px-6 py-20">
           <div className="flex max-w-3xl flex-col items-center text-center">
             {/* Main heading */}
             <h1 className="mb-6 font-heading text-6xl font-bold tracking-wide text-teal-dark drop-shadow-sm sm:text-7xl md:text-8xl">
@@ -32,24 +40,11 @@ export default function Home() {
             />
 
             {/* Tagline */}
-            <p className="mb-12 max-w-md font-heading text-xl leading-relaxed text-teal-dark drop-shadow-sm sm:text-2xl">
+            <p className="max-w-md font-heading text-xl leading-relaxed text-teal-dark drop-shadow-sm sm:text-2xl">
               Holistic manual therapy supporting structural balance and
               nervous-system regulation—helping your body return to stillness,
               softness, and a natural, fluid state of movement
             </p>
-
-            {/* CTA Button - Scrolls to booking section */}
-            <a
-              href="#book"
-              className="group relative overflow-hidden rounded-full bg-teal-dark/90 px-10 py-4 font-body text-sm font-semibold uppercase tracking-[0.2em] text-white shadow-lg backdrop-blur-sm transition-all duration-500 hover:bg-teal-dark hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-teal-deep focus:ring-offset-2 focus:ring-offset-white/50"
-              aria-label="Book a session"
-            >
-              <span className="relative z-10">Book a Session</span>
-              <span
-                className="absolute inset-0 -translate-x-full bg-gradient-to-r from-teal-deep to-teal-dark transition-transform duration-500 group-hover:translate-x-0"
-                aria-hidden="true"
-              />
-            </a>
           </div>
         </main>
       </section>
@@ -57,29 +52,62 @@ export default function Home() {
       {/* Booking Section */}
       <section
         id="book"
-        className="bg-gradient-to-b from-teal-ultralight to-teal-light px-6 py-20"
+        className="bg-gradient-to-b from-teal-ultralight to-teal-light px-6 py-12"
       >
         <div className="mx-auto max-w-4xl">
           {/* Section heading */}
-          <div className="mb-12 text-center">
-            <h2 className="mb-4 font-heading text-4xl font-bold tracking-wide text-teal-dark sm:text-5xl">
+          <div className="mb-6 text-center">
+            <h2 className="mb-2 font-heading text-3xl font-bold tracking-wide text-teal-dark sm:text-4xl">
               Book Your Session
             </h2>
-            <p className="mx-auto max-w-md font-body text-lg text-teal-mid">
+            <p className="mx-auto max-w-md font-body text-base text-teal-mid">
               Select a service and find a time that works for you.
+            </p>
+            <p className="mt-2 font-body text-sm text-teal-mid">
+              If you have any confusion about scheduling please feel free to
+              text or call 507-822-3081
             </p>
           </div>
 
-          {/* Square Appointments Iframe */}
-          <div className="overflow-hidden rounded-2xl bg-white shadow-xl">
-            <iframe
-              src="https://app.squareup.com/appointments/buyer/widget/d23lexfygzi760/LTF55SD00Y438"
-              className="min-h-[400px] w-full border-0"
-              style={{ height: "calc(100vh - 300px)", maxHeight: "800px" }}
-              title="Book an appointment with The Quiet Current"
-              allow="payment"
-              loading="lazy"
-            />
+          {/* Pocketsuite Booking Widget */}
+          <div id="ps-book" data-account="the-quiet-current" />
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="bg-peach px-6 py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="flex flex-col items-center gap-10 md:flex-row md:items-start md:gap-12">
+            {/* Profile Image */}
+            <div className="flex-shrink-0">
+              <img
+                src="/headshot.jpg"
+                alt="Katie - Licensed Massage Therapist"
+                className="h-64 w-64 rounded-full object-cover object-[center_30%] shadow-lg ring-4 ring-white/50 sm:h-72 sm:w-72"
+              />
+            </div>
+
+            {/* About text */}
+            <div className="space-y-6 font-body text-center leading-relaxed text-teal-dark sm:text-lg md:text-left">
+              <p>
+                Hi, I'm Katie—a licensed massage therapist with a grounded,
+                intuitive approach to bodywork. My practice centers on helping
+                clients feel more at ease in their bodies through attentive
+                touch, mindful pacing, and a deep respect for each person's
+                unique physiology.
+              </p>
+
+              <p>
+                I bring an intuitive touch to every session, blending modalities
+                such as myofascial release, deep tissue, stretching, and
+                nervous-system-informed techniques. My work is tailored to what
+                your body needs that day—whether that's focused therapeutic
+                work, full-body calming, or gentle unwinding.
+              </p>
+              <p>
+                All sessions are offered as mobile, in-home treatments, bringing restorative massage directly to your space.
+              </p>
+            </div>
           </div>
         </div>
       </section>
